@@ -1,7 +1,7 @@
 <div>
     <div class="col-md-12">
-        <h1><b>Item Group LIst </b></h1>
-        <a href="{{ route('itemgroup') }}" class="px-6 py-3 text-blue-100 no-underline bg-blue-500 rounded hover:bg-blue-600 hover:underline hover:text-blue-200 float-right">Add Item Group</a>
+        <h1><b>Category LIst </b></h1>
+        <a href="{{ route('add-category') }}" class="px-6 py-3 text-blue-100 no-underline bg-blue-500 rounded hover:bg-blue-600 hover:underline hover:text-blue-200 float-right">Add Category</a>
             
     <br>
     </div>
@@ -17,7 +17,10 @@
                             Sl. No
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Item Group Name
+                            Category Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Created User Name
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Create Date
@@ -25,19 +28,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($itemgroup as $key => $itemgroup)
+
+                    @foreach($category as $key => $category)
+                
                         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{$key + 1}}
                             </th>
                             <td class="px-6 py-4">
-                            {{$itemgroup['item_group_name']}}
+                                {{$category['category_name']}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$itemgroup['created_at']->format('d-m-Y')}}
+                                {{$category['user']['name']}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$category['created_at']->format('d-m-Y')}}
                             </td>
                         </tr>
-                        
+                    
                     @endforeach
                 </tbody>
             </table>

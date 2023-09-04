@@ -28,28 +28,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php 
-                    $i = 0;
-                    ?>
-                @foreach($item as $key => $item)
-                <?php 
-                        $i ++;
-                    ?>
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{$i}}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{$item['item_name']}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$item['item_group_name']}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$item['created_at']->format('d-m-Y')}}
-                        </td>
-                    </tr>
-                    
+                    @foreach($item as $key => $item)
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{$key + 1}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{$item['itemgroup']['item_group_name']}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$item['item_name']}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$item['created_at']->format('d-m-Y')}}
+                            </td>
+                        </tr>
+                        
                     @endforeach
                 </tbody>
             </table>

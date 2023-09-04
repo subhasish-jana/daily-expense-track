@@ -32,9 +32,9 @@ class AddItem extends Component
         $id = Auth::user()->id;
         $item = new Item;
         // print_r($itemgroup);die;
-        $item->item_group_id = $this->selectgroup; 
+        $item->itemgroup_id = $this->selectgroup; 
         $item->item_name = $this->name; 
-        $item->create_user = $id; 
+        $item->user_id = $id; 
         $item->save();
         session()->flash('success', 'Submit Successfully !');
         return redirect()->to('/item');

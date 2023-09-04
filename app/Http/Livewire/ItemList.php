@@ -5,15 +5,19 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 use App\Models\Item;
+use App\Models\Itemgroup;
 
 class ItemList extends Component
 {
     public $item;
 
+    // public function mount(){
+    //     $this->item = Itemgroup::with('item')->get()->toArray();
+    //     echo('<pre>');print_r($this->item);die;
+    // }
     public function mount(){
-        $this->item = Item::select('items.*', 'itemgroups.item_group_name')
-        ->join('itemgroups', 'itemgroups.id', '=', 'items.item_group_id')
-        ->get();
+        $this->item = Item::with('itemgroup')->get();
+        // echo('<pre>');print_r($this->item);die;
     }
 
     public function render()

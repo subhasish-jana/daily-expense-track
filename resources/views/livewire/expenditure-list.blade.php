@@ -38,34 +38,31 @@
                 </thead>
                 <tbody>
                     <?php 
-                    $i = 0;
+                        // print_r($expenditure);die;
                     ?>
-                @foreach($expenditure as $key => $expenditure)
-                    <?php 
-                        $i ++;
-                    ?>
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{$i}}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{$expenditure['item_group_name']}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$expenditure['item_name']}}
-                        </td>
-                        @if(Auth()->User()->user_type=='admin')
-                        <td class="px-6 py-4">
-                            {{$expenditure['name']}}
-                        </td>
-                        @endif
-                        <td class="px-6 py-4">
-                            {{$expenditure['exp_amt']}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$expenditure['created_at']->format('d-m-Y')}}
-                        </td>
-                    </tr>
+                    @foreach($expenditure as $key => $expenditure)
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{$key + 1}}
+                            </th>
+                            <td class="px-6 py-4">
+                            {{$expenditure['item']['itemgroup']['item_group_name']}}
+                            </td>
+                            <td class="px-6 py-4">
+                            {{$expenditure['item']['item_name']}}
+                            </td>
+                            @if(Auth()->User()->user_type=='admin')
+                            <td class="px-6 py-4">
+                                {{$expenditure['user']['name']}}
+                            </td>
+                            @endif
+                            <td class="px-6 py-4">
+                                {{$expenditure['exp_amt']}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$expenditure['created_at']->format('d-m-Y')}}
+                            </td>
+                        </tr>
                     
                     @endforeach
                 </tbody>

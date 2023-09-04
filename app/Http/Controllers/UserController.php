@@ -48,4 +48,18 @@ class UserController extends Controller
         return view('user-list');
     }
 
+    public function categoryList(){ 
+        return view('category-list');
+    }
+
+    public function subCategoryList(){ 
+        return view('subcategory-list');
+    }
+    public function addCategory(){ 
+        return view('addcategory');
+    }
+    public function addSubcategory(){ 
+        return view('addsubcategory');
+    }
+
 }

@@ -35,7 +35,7 @@ class AddExpenditure extends Component
         // print_r($itemgroup);die;
         $expenditure->item_id = $this->selectitem; 
         $expenditure->exp_amt = $this->exp_amt; 
-        $expenditure->create_user = $id; 
+        $expenditure->user_id = $id; 
         $expenditure->save();
         session()->flash('success', 'Submit Successfully !');
         return redirect()->to('/add-expenditure');
@@ -43,8 +43,8 @@ class AddExpenditure extends Component
     }
 
     
-    public function resetFilters(){
-        $this->reset(['selectitem']);
-        $this->reset(['exp_amt']);
-    }
+    // public function resetFilters(){
+    //     $this->reset(['selectitem']);
+    //     $this->reset(['exp_amt']);
+    // }
 }

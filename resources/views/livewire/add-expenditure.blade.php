@@ -17,7 +17,7 @@
             <option value="{{ $item['id'] }}">{{ $item->item_name }}</option>
             @endforeach
         </select>
-        @error('selectgroup') <span> {{$message}} </span> @enderror<br><br>
+        @error('selectitem') <span> {{$message}} </span> @enderror<br><br>
         <label for="fname">Enter Expense Amount :</label>
         <input type="text" placeholder="Expense Amount" wire:model="exp_amt" class="block w-full text-sm text-slate-500
             file:mr-4 file:py-2 file:px-4
@@ -25,7 +25,7 @@
             file:text-sm file:font-semibold
             file:bg-violet-50 file:text-violet-700
             hover:file:bg-violet-100">
-        @error('name') <span> {{$message}} </span> @enderror
+        @error('exp_amt') <span> {{$message}} </span> @enderror
         <br><br>
         <button type="submit" style="background-color: rgb(59 130 246);padding: 10px;">Save</button>
     </form>

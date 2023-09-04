@@ -33,6 +33,12 @@ route::get('/add-expenditure',[UserController::class,'addExpenditure'])->middlew
 route::get('/expenditure-list',[UserController::class,'expenditureList'])->middleware('auth')->name('expenditure-list');
 route::get('/user-list',[UserController::class,'userList'])->middleware(['auth', 'admin'])->name('user-list');
 
+route::get('/category-list',[UserController::class,'categoryList'])->middleware('auth')->name('category-list');
+route::get('/subcategory-list',[UserController::class,'subCategoryList'])->middleware('auth')->name('subcategory-list');
+route::get('/add-subcategory',[UserController::class,'addSubcategory'])->middleware('auth')->name('itemgroup');
+route::get('/add-category',[UserController::class,'addCategory'])->middleware('auth')->name('add-category');
+route::get('/add-subcategory',[UserController::class,'addSubcategory'])->middleware('auth')->name('add-subcategory');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expenditure extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function item(){
-        return $this->belongsto(Item::class);
-    }
-
     public function user(){
         return $this->belongsto(User::class);
+    }
+
+    public function subcategory(){
+        return $this->hasMany(Subcategory::class);
     }
 }
